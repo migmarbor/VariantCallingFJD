@@ -2,6 +2,7 @@
 
 # VariantCallingFJD
 
+Test
 
 The objective of the development of this pipeline was to automate the customized genomics analysis that we carry out in the **Bioinformatics Unit** for the **Department of Genetics and Genomics** of the [**Institituto de Investigación Sanitaria Fundación Jiménez Díaz (IIS-FJD)**](https://www.fjd.es/iis-fjd). This pipeline is designed to be run in a [Slurm Workload Manager](https://slurm.schedmd.com/documentation.html) system wich is an "open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters".
 
