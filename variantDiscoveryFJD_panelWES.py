@@ -111,7 +111,7 @@ def main():
 	## basespace option not possible for bam files
 	
 	if args.skipMapping and args.basespace:
-		print("ERROR: Bam files can not be retrieved from BaseSpace. Choose -b or -k but not both \n")
+		print("ERROR: Bam files can not beconfigFilePipeline retrieved from BaseSpace. Choose -b or -k but not both \n")
 		sys.exit()
 
 

@@ -22,10 +22,6 @@ tasksPath=${softwarePath}/tasks
 mafincorporation=${13}
 
 
-
-
-
-
 printf "\n.............................\n"
 printf "  VARIANT ANNOTATION \n"
 printf ".............................\n"
@@ -39,11 +35,6 @@ $tasksPath/VEPannotation.sh $threads $vcf $softwareFile
 if [ "$?" != "0" ]  ; then exit 1; fi
 
 vepoutput=${MDAP}/snvs/${name}.annotated.MAFfiltered.vcf
-
-
-
-
-
 
 printf "\n...............\n"
 printf "  LOH \n"
@@ -59,11 +50,6 @@ else
 	echo -e  "ERROR: PROBLEMS WITH PLINK"
 	exit 1
 fi 
-
-
-
-
-
 
 printf "\n.............................\n"
 printf " VEP VCF TO TXT FILE \n"
@@ -205,14 +191,3 @@ if [ "${mafincorporation}" != "False" ]; then
 	fi
 
 fi
-
-
-
-
-
-
-
-
-
-
-

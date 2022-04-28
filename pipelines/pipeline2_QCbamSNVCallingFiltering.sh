@@ -30,9 +30,6 @@ tasksPath=${softwarePath}/tasks
 #if [ "$skipmapping" != "True" ]; then bamF=$MDAP/bams; else bamF=${INPUT}; fi
 bamfile=${bamF}/${sample}.bam
 
-
-
-
 if [ "$analysis" != "WGS" ] 
 
 then 
@@ -50,7 +47,6 @@ then
 
 fi
 
-
 printf "\n\n.......................\n"
 printf "SNV CALLING $sample \n"
 printf ".........................\n"
@@ -67,15 +63,9 @@ if [ "$cvcf" = "True" ]; then
 
 fi
 
-
-
-
-
-
 printf "\n\n..........................\n"
 printf "VARIANT FILTERING $sample \n"
 printf ".............................\n"
-
 
 # CNN / HF
 

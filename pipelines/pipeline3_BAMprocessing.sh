@@ -96,19 +96,9 @@ $tasksPath/SNVfiltering.sh $local $run $MDAP $sample $REF $ftype $cvcf $software
 
 
 
-
-
-
-
-
-
-
-
 printf "\n\n.......................\n"
 printf "\n\n\n- OUTPUT PROCESSING "
 printf "\n-------------------------\n"
-
-
 
 
 ## VCF TO TXT
@@ -136,12 +126,6 @@ fi
 end=`date +%s`
 runtime=$((end-start))
 printf '\nExecuting time: '$runtime 
-
-
-
-
-
-
 
 
 
@@ -178,11 +162,6 @@ printf '\nExecuting time: '$runtime
 
 
 
-
-
-
-
-
 # Filter PVM files based on gene list
 
 
@@ -215,24 +194,9 @@ if [ "$genefilter" != "False" ]; then
 
 fi
 
-
-
-
-
-
-
-
-
 printf "\n\n..........................\n"
 printf "\n\n\n- MAF FILE PROCESSING "
 printf "\n------------------------------\n"
 
 
 $tasksPath/MAF_fjd.sh $local $run $MDAP $sample $REF $intervals $panel $cvcf $removebam
-
-
-
-
-
-
-

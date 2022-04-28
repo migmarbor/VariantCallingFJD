@@ -33,11 +33,11 @@ tasksPath=${softwarePath}/tasks
 
 #if [ "$local" != "True" ]; then
 
-module load bedtools/2.27.0
-module load R/R
-module load samtools/1.9
-module load annotsv/2.2
-module load perl/5.28.0
+#module load bedtools/2.27.0
+#module load R/R
+#module load samtools/1.9
+#module load annotsv/2.2
+#module load perl/5.28.0
 source ${softwarePath}/pipeline.config
 
 fai=${fai_path}
@@ -45,7 +45,7 @@ fai=${fai_path}
 
 softwareFile="${MDAP}/software_${run}.txt"
 echo "COPY NUMBER VARIANT CALLING:" >> ${softwareFile}
-module list 2>> ${softwareFile}
+echo "bedtools\nR\nsamtools\nannotsv\nperl\n" >> ${softwareFile}
 export ANNOTSV=${annotsv_path}
 # export ANNOTSV="/usr/local/bioinfo/annotsv/2.2"
 
