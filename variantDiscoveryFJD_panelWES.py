@@ -18,6 +18,7 @@ import time
 from collections import defaultdict 
 import ConfigParser
 
+
 now = (datetime.datetime.now()).strftime('%Y_%m_%d_%H_%M_%S')
 print("DATE:"+now)
 softwarePath = os.path.dirname(os.path.realpath(__file__))+"/"
@@ -28,10 +29,7 @@ configFilePath = os.path.dirname(os.path.realpath(__file__))+"/pipeline.config"
 configFile = ConfigParser.ConfigParser()
 configFile.read(configFilePath)
 
- 
-
-
-def sbatch(job_name, folder_out, command, mem=4, time=400, threads=1, mail=None, dep='', wait = '', queue=None, typedep=None):
+ def sbatch(job_name, folder_out, command, mem=4, time=400, threads=1, mail=None, dep='', wait = '', queue=None, typedep=None):
 
 	if dep != '':
 		if typedep!=None:
@@ -144,7 +142,7 @@ def main():
 	## pipeline starts
 
 	sys.stdout.write("\nFJD ANALYSIS\n")
-	sys.stdout.write("\nChecking arguments...\n")
+	sys.stdout.write("\n [*] Checking arguments...\n")
 
 
 
@@ -338,7 +336,7 @@ def main():
 
 		# Check project name and if exists list all samples associated to that project
 
-		sys.stdout.write("\nChecking if project exists...\n")
+		sys.stdout.write("\n[*] Checking if project exists...\n")
 
 		projectfile = args.output+'/'+run+'_projects.txt'
 		datasetfile = args.output+'/'+args.input+'_'+run+'_'+'datasets.txt'
@@ -448,7 +446,7 @@ def main():
 	if args.skipMapping == False or args.analysis in ["snv","all"]: # mapping or snps
 
 		sys.stdout.write("\n........................................................\n")
-		sys.stdout.write("RUNNING MAPPING OR/AND SNV CALLING FOR INDIVIDUAL SAMPLES\n")
+		sys.stdout.write("[*] RUNNING MAPPING OR/AND SNV CALLING FOR INDIVIDUAL SAMPLES\n")
 		sys.stdout.write("........................................................\n")
 
 
@@ -540,7 +538,7 @@ def main():
 	if args.cvcf:
 
 		sys.stdout.write("\n...............................\n")
-		sys.stdout.write("  RUNNING COMBINED GENOTYPING   \n")
+		sys.stdout.write(" [*] RUNNING COMBINED GENOTYPING   \n")
 		sys.stdout.write("...............................\n\n")
 
 		myargs_pipe3 = [pipelinesPath+"pipeline5_combinedGenotyping.sh", args.output, str(args.local), run, args.genome, str(args.cvcf), args.pedigree, softwarePath]
@@ -577,7 +575,7 @@ def main():
 		start_time = time.time()
 
 		sys.stdout.write("\n.............................................\n")
-		sys.stdout.write("RUNNING CNV DETECTION FOR PROVIDED SAMPLES \n")
+		sys.stdout.write("[*] RUNNING CNV DETECTION FOR PROVIDED SAMPLES \n")
 		sys.stdout.write(".............................................\n\n")
 
 		method = "QC,"+args.cnv_method+",MA"
@@ -634,7 +632,7 @@ def main():
 
 
 	sys.stdout.write("\n................................\n")
-	sys.stdout.write("REMOVING TMP FOLDERS AND FILES \n")
+	sys.stdout.write("[*] REMOVING TMP FOLDERS AND FILES \n")
 	sys.stdout.write("................................\n\n")
 
 
@@ -658,7 +656,7 @@ def main():
 	# create a new job which analysed what happend with all the jobs ran during these task
 
 	sys.stdout.write("\n...........................\n")
-	sys.stdout.write("SLURM JOB STATUS SUMMARY \n")
+	sys.stdout.write("[*] SLURM JOB STATUS SUMMARY \n")
 	sys.stdout.write("...........................\n\n")
 
 	depJobs = ':'.join(depJobs_list)
