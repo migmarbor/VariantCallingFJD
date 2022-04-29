@@ -27,14 +27,14 @@ softwarePath=$6
 
 
 
-module load gatk/4.2.0
+#module load gatk/4.2.0
 source ${softwarePath}/pipeline.config
 
-eval "$(${conda_bin} shell.bash hook)"
+#eval "$(${conda_bin} shell.bash hook)"
 
-source activate gatk
+#source activate gatk
 
-alias gatk="java -jar ${gatkPath_path}"
+#alias gatk="java -jar ${gatkPath_path}"
 #alias gatk='java -jar /usr/local/bioinfo/gatk/4.2.0/gatk-package-4.2.0.0-local.jar'	
 
 
@@ -42,7 +42,7 @@ softwareFile="${MDAP}/software_${run}.txt"
 title="GENOTYPE REFINEMENT:"
 if [ ! -f $softwareFile ] || ! grep -q $title $softwareFile  ; then
 	printf "GENOTYPE REFINEMENT:\n" >> ${softwareFile}
-	module list 2>> ${softwareFile}
+	printf "GATK">> ${softwareFile}
 
 fi
 
@@ -145,10 +145,6 @@ else
 	echo -e "\n NOT INPUT PED FILE: genotype posterior calculation skipped"
 
 fi
-
-
-
-
 
 # Removing temporal forder
 

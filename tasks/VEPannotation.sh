@@ -24,7 +24,7 @@ interval=$4 # must be a chromosome
 
 
 
-module load vep/release103
+#module load vep/release103
 VEP="/usr/local/bioinfo/vep/ensembl-vep-release-103/vep"
 FILTER_VEP='/usr/local/bioinfo/vep/ensembl-vep-release-103/filter_vep'
 VEP_CACHE='/usr/local/bioinfo/vep/ensembl-vep/t/testdata/cache/homo_sapiens/'
@@ -41,7 +41,7 @@ title="MAPPING"
 if [ ! -f $softwareFile ] || ! grep -q $title $softwareFile  ; then
 	
 	printf "VEP ANNOTATION:\n" >> ${softwareFile}
-	module list 2>> ${softwareFile}
+	printf "\n Vep \n">> ${softwareFile}
 
 fi
 
@@ -193,15 +193,4 @@ fi
 end=`date +%s`
 runtime=$((end-start))
 printf '\nExecuting time: '$runtime 
-
-
-
-
-
-
-
-
-
-
-
 

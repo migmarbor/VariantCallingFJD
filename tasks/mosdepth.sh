@@ -26,8 +26,8 @@ mycountthreshold=$9
 
 
 		
-module load miniconda/3.6
-module load bedtools/2.27.0
+#module load miniconda/3.6
+#module load bedtools/2.27.0
 
 softwareFile="${MDAP}/software_${run}.txt"
 title="COVERAGE QC"
@@ -35,19 +35,10 @@ title="COVERAGE QC"
 if [ ! -f $softwareFile ] || ! grep -q $title $softwareFile  ; then
 
 	printf "COVERAGE QC:\n" >> ${softwareFile}
-	module list 2>> ${softwareFile}	
+	printf "\n bedtools\n ">> ${softwareFile}	
 	mosdepth --version >> ${softwareFile}
 
 fi
-
-
-
-
-
-
-
-
-
 
 ###############
 ## VARIABLES ##
@@ -73,9 +64,6 @@ covPerc=0.9
 # 0. Definition of read threshold to check quality. QC parameters will be different dependind on SNV or CNVs
 
 if [ "$analysis" != "cnv" ]; then readthreshold=10; else readthreshold=$mycountthreshold; fi
-
-
-
 
 
 # 1. QC to check coverage for input bams. Writing results to File
@@ -133,14 +121,6 @@ else
 	exit 1
 fi
 
-
-
-
-
-
-
-
-
 # 2. If coverage is OK for sample and in case of SNVs analysis we need to compute coverage for MAF ddbb
 
 
@@ -166,9 +146,6 @@ if [ "$analysis" != "cnv" ]; then
 	fi
 	
 
-
-
-
 	if [ "$s1" = "0" ]  &&  [ "$s2" = "0" ]  &&  [ "$s3" = "0" ]; then
 		printf '\nEXIT STATUS: 0'
 		printf '\nTARGET COVERAGE FOR '${sample}' DONE\n' 
@@ -183,15 +160,4 @@ if [ "$analysis" != "cnv" ]; then
 	fi
 
 
-
-
-
 fi
-
-
-
-
-
-
-
-

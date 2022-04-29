@@ -143,10 +143,3 @@ for coverage_file_path in glob(raw_coverages_folder + '/*'):
 	#Storing extended coverage file
 	with open(output_path, 'w') as file:
    		file.writelines('\t'.join(i) + '\n' for i in ext_cov_file)
-
-
-
-
-
-	
-	

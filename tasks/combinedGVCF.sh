@@ -24,11 +24,11 @@ softwarePath=$5
 #####################
 
 
-module load samtools/1.9
-module load picard/2.18.9
-module load gatk/4.2.0
-module load bedtools/2.27.0
-module load R/R
+#module load samtools/1.9
+#module load picard/2.18.9
+#module load gatk/4.2.0
+#module load bedtools/2.27.0
+#module load R/R
 source ${softwarePath}/pipeline.config
 
 alias picard="java -jar ${picard_path}"
@@ -42,8 +42,7 @@ softwareFile="${MDAP}/software_${run}.txt"
 title="SNV CALLING"
 if [ ! -f $softwareFile ] || ! grep -q $title $softwareFile  ; then
 	printf "SNV CALLING:\n" >> ${softwareFile}
-	module list 2>> ${softwareFile}
-
+	printf "\n samtools \n picard \n gatk \n bedtools \n R \n" >> ${softwareFile}
 fi
 
 
